@@ -2,8 +2,9 @@
   <modelVersion>4.0.0</modelVersion>
   <!--  Project from https://start.vaadin.com/project/31b39183-7906-4f2c-8545-74486c00acf8  -->
   <groupId>com.vaadin</groupId>
-  <artifactId>my-app</artifactId>
-  <name>my-app</name>
+
+  <artifactId>Amplify</artifactId>
+  <name>Amplify</name>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <properties>
