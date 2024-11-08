@@ -58,7 +58,7 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	@Before
 	public void setUp() {
 	// Configure download preferences for Chrome
-	String downloadFilepath = "C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\downloadFiles";
+	String downloadFilepath = "C:\\Users\\MariiaCherniak\\Documents\\GitHub\\Amplify\\downloadFiles";
 	Map<String, Object> prefs = new HashMap<>();
 	prefs.put("download.default_directory", downloadFilepath);
 	prefs.put("download.prompt_for_download", false); // Disable download prompts
@@ -88,24 +88,24 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	// Your login method
 
 	private void performLogin() {
-	//	getDriver().get("http://localhost:8080/navy_webui/");
+		getDriver().get("http://localhost:8080/amplify_webui/");
 	//	getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/navy_webui/");
 
 
-	//	$( TextFieldElement.class).first().setValue( "jBond");
-	//	$( PasswordFieldElement.class).first().setValue( "JBond007");
-	//	$( ButtonElement.class).first().click();
-		getDriver().get("https://test.navymutual.calcfocus.net/policyadmin/oauth2/login/cognito");
-		WebElement usernameFieldElement = findElement( By.id( "signInFormUsername" ));
-		usernameFieldElement.click();
-		usernameFieldElement.sendKeys( "helpdesk" );
-		WebElement passwordFieldElement = findElement( By.id( "signInFormPassword" ));
-		passwordFieldElement.click();
-		passwordFieldElement.sendKeys( "JBond007$" );
+		$( TextFieldElement.class).first().setValue( "jBond");
+		$( PasswordFieldElement.class).first().setValue( "JBond007");
+		$( ButtonElement.class).first().click();
+	//	getDriver().get("https://test.navymutual.calcfocus.net/policyadmin/oauth2/login/cognito");
+	//	WebElement usernameFieldElement = findElement( By.id( "signInFormUsername" ));
+	//	usernameFieldElement.click();
+	//	usernameFieldElement.sendKeys( "helpdesk" );
+	//	WebElement passwordFieldElement = findElement( By.id( "signInFormPassword" ));
+	//	passwordFieldElement.click();
+	//	passwordFieldElement.sendKeys( "JBond007$" );
 
 	//	WebElement buttonElement = findElement( By.id( "signInSubmitButton" ));
-		TestBenchElement loginButton = ( TestBenchElement )findElement( By.name( "signInSubmitButton" ));
-		loginButton.click();
+	//	TestBenchElement loginButton = ( TestBenchElement )findElement( By.name( "signInSubmitButton" ));
+	//	loginButton.click();
 
 
 

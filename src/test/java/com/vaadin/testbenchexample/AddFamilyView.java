@@ -54,8 +54,11 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 	protected TextFieldElement getLastName() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( TextFieldElement.class ).id( "LastName" );
 	}
-	protected TextFieldElement getSuffix() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( TextFieldElement.class ).id( "Suffix" );
+	protected SelectElement getSuffix() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id("SuffixCode");
+	}
+	protected SelectElement getPrefix() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id("PrefixCode");
 	}
 	protected TextFieldElement getMiddleName() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( TextFieldElement.class ).id( "MiddleName" );
@@ -83,26 +86,15 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 	protected SelectElement getRelationship() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "RelationshipType" );
 	}
+	protected SelectElement getMarriageStatus() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "MarriageStatus" );
+	}
+	protected SelectElement getHealthStatus() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "PerceptionOfHealth" );
+	}
 
-	//Military
-	protected SelectElement getMilitaryStatus() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Military" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "UsMilitaryStatus" );
-	}
-	protected SelectElement getMilitaryBranch() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Military" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "UsMilitaryBranch" );
-	}
-	protected SelectElement getMilitaryRank() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Military" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "UsMilitaryRank" );
-	}
-	protected SelectElement getMilitaryMemberStatus() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Military" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "UsMilitaryMemberType" );
-	}
-	protected  CheckboxElement getVipStatus(){
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Military" ).$( FormLayoutElement.class ).first().$(CheckboxElement.class).first();
-	}
-	protected  CheckboxElement getVaultDocuments(){
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Military" ).$( FormLayoutElement.class ).first().$(CheckboxElement.class).last();
-	}
+
+
 
 
 	//Contact
@@ -112,9 +104,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 	protected TextFieldElement getEmail2() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).first().$( TextFieldElement.class ).id( "Email2" );
 	}
-	protected  CheckboxElement getEdelivery(){
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).first().$(CheckboxElement.class).first();
-	}
+
 	protected TextFieldElement getPhone1() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$( TextFieldElement.class ).id( "Phone1" );
 	}
@@ -133,12 +123,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 	protected TextFieldElement getPhone2Extension() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$( TextFieldElement.class ).id( "Phone2Extension" );
 	}
-	protected  CheckboxElement getReturnedMail(){
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$(CheckboxElement.class).first();
-	}
-	protected  CheckboxElement getReceiveMarketing(){
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$(CheckboxElement.class).last();
-	}
+
 	protected DatePickerElement getLastContactDate () {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$( DatePickerElement.class ).id( "LastContactDate" );
 	}
@@ -168,23 +153,21 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 
 	public void addFamily( ) {
 
-		List<String[]> testData = ExcelUtils.readExcelData( "C:\\Users\\MariiaCherniak\\Documents\\testData.xlsx" );
+		List<String[]> testData = ExcelUtils.readExcelData( "C:\\Users\\MariiaCherniak\\Documents\\AmplifyTestData.xlsx" );
 		for( String[] dataRow : testData ) {
 			String firstName = dataRow[0];
 			String lastName = dataRow[1];
 			String middleName = dataRow[2];
-			String suffix = dataRow[3];
-			String taxID = dataRow[4];
-			String email = dataRow[5];
-			String email2 = dataRow[6];
-			String phone1 = dataRow[7];
-			String phone2 = dataRow[8];
-			String extens1 = dataRow[9];
-			String extens2 = dataRow[10];
+			String taxID = dataRow[3];
+			String email = dataRow[4];
+			String email2 = dataRow[5];
+			String phone1 = dataRow[6];
+			String phone2 = dataRow[7];
+			String extens1 = dataRow[8];
+			String extens2 = dataRow[9];
 			getLastName().sendKeys( lastName );
 			getFirstName().sendKeys( firstName );
 			getMiddleName().setValue( middleName );
-			getSuffix().sendKeys( suffix );
 			getTaxID().setValue( taxID );
 			getEmail().sendKeys( email );
 			getEmail2().sendKeys( email2 );
@@ -204,24 +187,24 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 
 	public void addSpouse( ) {
 
-		List<String[]> testData = ExcelUtils.readExcelData( "C:\\Users\\MariiaCherniak\\Documents\\TestSpouseData.xlsx" );
+		List<String[]> testData = ExcelUtils.readExcelData( "C:\\Users\\MariiaCherniak\\Documents\\AmplifyTestSpouseData.xlsx" );
 		for( String[] dataRow : testData ) {
 			String firstName = dataRow[0];
 			String lastName = dataRow[1];
 			String middleName = dataRow[2];
-			String suffix = dataRow[3];
-			String taxID = dataRow[4];
-			String email = dataRow[5];
-			String email2 = dataRow[6];
-			String phone1 = dataRow[7];
-			String phone2 = dataRow[8];
-			String extens1 = dataRow[9];
-			String extens2 = dataRow[10];
+
+			String taxID = dataRow[3];
+			String email = dataRow[4];
+			String email2 = dataRow[5];
+			String phone1 = dataRow[6];
+			String phone2 = dataRow[7];
+			String extens1 = dataRow[8];
+			String extens2 = dataRow[9];
 
 			getLastName().sendKeys( lastName );
 			getFirstName().sendKeys( firstName );
 			getMiddleName().setValue( middleName );
-			getSuffix().sendKeys( suffix );
+
 			getTaxID().setValue( taxID );
 			getEmail().sendKeys( email );
 			getEmail2().sendKeys( email2 );

@@ -99,13 +99,13 @@ public class ApplicationView extends TestBenchElement {
 		getCaseNumber().sendKeys( String.valueOf( randomNumber ) );
 	}
 
-	public void compareAndDeleteDownloadedPdfSPIA() throws Exception {
+	public void compareAndDeleteDownloadedPdfFPIUL() throws Exception {
 
-		String downloadDir = "C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\downloadFiles";
-		String fileName = "NewBusiness.pdf";
+		String downloadDir = "C:\\Users\\MariiaCherniak\\Documents\\GitHub\\Amplify\\downloadFiles";
+		String fileName = "Point of Sale.pdf";
 		File downloadedFile = new File(downloadDir + "\\" + fileName);
 
-		File referenceFile = new File("C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\downloadFiles\\ReferenceIllusSPIA.pdf");
+		File referenceFile = new File("C:\\Users\\MariiaCherniak\\Documents\\GitHub\\Amplify\\downloadFiles\\Reference.pdf");
 	//	File referenceFile = new File("C:\\Users\\MariiaCherniak\\Downloads\\Change Management Request -  CM400.pdf");
 		boolean testPassed = false;
 		try {

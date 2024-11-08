@@ -32,7 +32,7 @@ public class NaviMenuView extends TestBenchElement {
 
 	protected TestBenchElement getDocument() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 18 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 13 );
 	}
 //SPDA
 	protected TestBenchElement getDocumentSPDA() {
@@ -42,7 +42,7 @@ public class NaviMenuView extends TestBenchElement {
 
 	protected TestBenchElement getNewBusiness() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 30 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 27 );
 	}
 
 	protected TestBenchElement getBankInformation() {
@@ -57,7 +57,7 @@ public class NaviMenuView extends TestBenchElement {
 
 	protected TestBenchElement checkIGO() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 25 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 17 );
 	}
 	//SPDA
 	protected TestBenchElement checkSpdaIGO() {
@@ -71,7 +71,7 @@ public class NaviMenuView extends TestBenchElement {
 
 	protected TestBenchElement suspense() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 23 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 33 );
 	}
 
 	protected TestBenchElement transactionsFPDR() {
@@ -98,5 +98,9 @@ public class NaviMenuView extends TestBenchElement {
 	protected TestBenchElement getResult() {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 5 );
+	}
+	protected TestBenchElement getPolicy() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).first();
 	}
 }
