@@ -2,6 +2,7 @@ package com.vaadin.testbenchexample;
 import com.vaadin.flow.component.button.testbench.ButtonElement;
 import com.vaadin.flow.component.datepicker.testbench.DatePickerElement;
 import com.vaadin.flow.component.grid.testbench.GridElement;
+import com.vaadin.flow.component.radiobutton.testbench.RadioButtonGroupElement;
 import com.vaadin.flow.component.select.testbench.SelectElement;
 import com.vaadin.flow.component.textfield.testbench.TextAreaElement;
 import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
@@ -30,6 +31,11 @@ public class EntryDialogContent extends TestBenchElement {
 	protected TextFieldElement getAccountNumber() {
 
 		return $( TestBenchElement.class ).id( "FinancialInstitutionInfoSection" ).$( TextFieldElement.class ).id( "AccountNumber" );
+
+	}
+	protected TextFieldElement getAccountNumberUnmasked() {
+
+		return $( TestBenchElement.class ).id( "FinancialInstitutionInfoSection" ).$( TextFieldElement.class ).id( "AccountNumberUnmasked" );
 
 	}
 	protected TextFieldElement getRoutingNumber() {
@@ -120,10 +126,51 @@ public class EntryDialogContent extends TestBenchElement {
 	protected SelectElement disbursementMethod (){
 		return $(TestBenchElement.class).id( "InputsSection" ).$( SelectElement.class).id( "DisbursementMethod" );
 	}
-	public void addAccount(String bankName,String bankCityName,String routingNumber ){
+
+	//Beneficiary
+	protected SelectElement selectBene (){
+	return $(TestBenchElement.class).id("FldSec_1" ).$(SelectElement.class).id("PartyGUID");
+	}
+	protected TextFieldElement firstName (){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(TestBenchElement.class).id("sectionComponent").$(TextFieldElement.class).id("FirstName");
+	}
+	protected TextFieldElement lastName (){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(TextFieldElement.class).id("LastName");
+	}
+	protected SelectElement gender (){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(SelectElement.class).id("Gender");
+	}
+	protected DatePickerElement dob (){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(DatePickerElement.class).id("DateOfBirth");
+	}
+	protected TextFieldElement ssn (){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(TextFieldElement.class).id("SsnOrTaxID");
+	}
+	protected TextFieldElement email (){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(TextFieldElement.class).id("Email");
+	}
+	protected TextFieldElement pnoneNumber (){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(TextFieldElement.class).id("Phone1");
+	}
+    protected RadioButtonGroupElement defaultAddress (){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(RadioButtonGroupElement.class).first();
+	}
+
+	public void addBeneficiary (String firstName,String lastName,String ssn,String email,String phoneNumber){
+	firstName().sendKeys(firstName);
+	lastName().sendKeys(lastName);
+	 ssn().sendKeys(ssn);
+	 email().sendKeys(email);
+	 pnoneNumber().sendKeys(phoneNumber);
+	}
+
+
+
+	public void addAccount(String bankName,String bankCityName,String routingNumber,String accountNumber ){
 		getFinancialInstitutionName().sendKeys( bankName );
 		getBankCity().sendKeys( bankCityName );
 		getRoutingNumber().sendKeys( routingNumber );
+		getAccountNumberUnmasked().sendKeys(accountNumber);
 
 	}
 

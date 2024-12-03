@@ -152,7 +152,7 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>4.26.0</version>
+      <version>4.27.0</version>
     </dependency>
 
     <dependency>
@@ -213,11 +213,9 @@
             </executions>
             <configuration>
               <includes>
-                <include>AddNewBusinessSpiaIT.java</include>
-                  <include>AddNewBusinessWholeLifeIT.java</include>
-                <include>AddNewBusinessFpraIT.java</include>
-                  <include>AddNewBusinessSpdaIT.java</include>
-                <include>BaseLoginTest.java</include>
+                <include>UniversalLifeIT.java</include>
+                  <include>WholeLifeIT.java</include>
+                  <include>BaseLoginTest.java</include>
                 <include>AddFamilyIT.java</include>
               </includes>
               <trimStackTrace>false</trimStackTrace>

@@ -1,19 +1,7 @@
 package com.vaadin.testbenchexample;
-import java.io.File;
-import java.io.IOException;
-import java.time.LocalDate;
-
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-
-import com.vaadin.testbench.screenshot.ImageFileUtil;
 
 
-public class AddNewBusinessWholeLifeIT extends BaseLoginTest {
+public class WholeLifeIT extends BaseLoginTest {
 	/*
 	@Test
 	public void addIllustration() throws InterruptedException, IOException {

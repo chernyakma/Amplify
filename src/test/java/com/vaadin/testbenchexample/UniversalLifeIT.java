@@ -276,9 +276,9 @@ public class UniversalLifeIT extends BaseLoginTest {
 		TransactionPopUpPageView selectTransaction = $(TransactionPopUpPageView.class).first();
 		selectTransaction.transactionType().selectByText( "Loan" );
 		EntryDialogContent loan = $(EntryDialogContent.class).first();
-		loan.loanAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "1000" );
+		loan.loanAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "500" );
 		loan.disbursementMethod().selectByText( "Check Disbursement" );
-		Assertions.assertEquals( "1,000.00",loan.loanAmount().getValue() );
+		Assertions.assertEquals( "500.00",loan.loanAmount().getValue() );
 		TransactionPopUpPageView getApproved = $(TransactionPopUpPageView.class).first();
 		getApproved.approved().click();
 		loan.okButton().click();
@@ -298,7 +298,7 @@ public class UniversalLifeIT extends BaseLoginTest {
 		NaviMenuView policy = $(NaviMenuView.class).first();
 		policy.getPolicy().click();
 		ScenarioView policyPage = $(ScenarioView.class).first();
-		Assertions.assertEquals( "1,000.00",policyPage.loanBalance().getValue() );
+		Assertions.assertEquals( "500.00",policyPage.loanBalance().getValue() );
 		NaviMenuView transactions = $(NaviMenuView.class).first();
 		transactions.transactionsWL().click();
 		ScenarioView deleteTransaction = $(ScenarioView.class).first();
@@ -323,7 +323,7 @@ public class UniversalLifeIT extends BaseLoginTest {
 		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
 		newBusiness.getNewBusiness().click();
 		NewIllustrationView addNewBusiness = $( NewIllustrationView.class ).first();
-		addNewBusiness.effectiveDate().setDate(LocalDate.of(2024,11,1));
+	//	addNewBusiness.effectiveDate().setDate(LocalDate.of(2024,11,1));
 		addNewBusiness.getProductType().selectByText( "Indexed Universal Life" );
 		addNewBusiness.getFaceAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "100000" );
 //		addNewBusiness.getInsured().selectItemByIndex( 0 );
@@ -338,17 +338,15 @@ public class UniversalLifeIT extends BaseLoginTest {
 		confirm.getSaveButton().click();
 
 		ApplicationView application = $( ApplicationView.class ).first();
-		application.getAgentNumber().openPopup();
-		application.getAgentNumber().sendKeys( Keys.ARROW_DOWN, Keys.ARROW_DOWN );
-		application.getAgentNumber().sendKeys( Keys.ENTER );
-		Assertions.assertEquals( "MC001", application.getAgentNumber().getSelectedText() );
-
-
+		application.getAgentNumber().sendKeys("MC001");
+		application.getAgentNumber().sendKeys(Keys.ARROW_DOWN);
+		application.getAgentNumber().sendKeys(Keys.ENTER);
 
 		application.applicationReceived().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
 		application.applicationReceivedDate().setDate( LocalDate.now() );
 		application.applicationSignedDate().setDate( LocalDate.now() );
+		Assertions.assertEquals( "MC001", application.getAgentNumber().getSelectedText() );
 		application.applicationFundsReceived().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.applicationFundsReceived().getSelectedText() );
 		application.cashWithApplication().selectByText( "Yes" );
@@ -386,108 +384,11 @@ public class UniversalLifeIT extends BaseLoginTest {
 		issue.issueButton().click();
 		VaadinConfirmDialogView confirmButton = $( VaadinConfirmDialogView.class ).first();
 		confirmButton.getSaveButton().click();
-		VaadinConfirmDialogView ok = $(VaadinConfirmDialogView.class).first();
-		ok.getSaveButton().click();
+	//	VaadinConfirmDialogView ok = $(VaadinConfirmDialogView.class).first();
+	//	ok.getSaveButton().click();
 		ScenarioView getPolicyStatus = $(ScenarioView.class).first();
 		Assertions.assertEquals( "Active",getPolicyStatus.policyStatus().getText() );
 
-
-/*		illustration.payOutOption().selectByText( "Period Certain" );
-		illustration.paymentMode().selectByText( "Quarterly" );
-		illustration.periodCertainYears().selectByText( "15 Year" );
-		illustration.federalTaxWithholdingPercentage().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "10" );
-		illustration.disbursementMethod().selectByText( "ACH Disbursement" );
-		illustration.getSaveButton().click();
-		Assertions.assertEquals( illustration.paymentStartDate().getDate(),illustration.policyEffectiveDate().getDate().plusMonths( 3 ) );
-		NaviMenuView getReport = $( NaviMenuView.class ).first();
-		getReport.getReport().click();
-		IllustrationView apply = $( IllustrationView.class ).first();
-		apply.getApplyButtonReport().click();
-		VaadinConfirmDialogView confirm = $( VaadinConfirmDialogView.class ).first();
-		confirm.getSaveButton().click();
-
-        NaviMenuView getDocument = $( NaviMenuView.class ).first();
-		getDocument.getDocument().click();
-		ApplicationView application = $( ApplicationView.class ).first();
-		application.downloadButton().click();
-		Thread.sleep( 3_000 );
-		application.compareAndDeleteDownloadedPdfSPIA();
-
-		NaviMenuView getApplication = $( NaviMenuView.class ).first();
-		getApplication.getApplication().click();
-		ApplicationView app = $( ApplicationView.class ).first();
-
-		app.applicationReceived().selectByText( "Yes" );
-		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
-		application.applicationReceivedDate().setDate( LocalDate.now() );
-		application.applicationSignedDate().setDate( LocalDate.now() );
-		application.applicationFundsReceived().selectByText( "Yes" );
-		Assertions.assertEquals( "Yes", application.applicationFundsReceived().getSelectedText() );
-		application.cashWithApplication().selectByText( "Yes" );
-		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
-		application.cashWithApplicationReceivedDate().setDate( LocalDate.now() );
-		application.threeDotsButton().click();
-		WebElement noteList = findElement( By.xpath( "//*[@class='vaadin-menu-item']" ) );
-		noteList.click();
-		Thread.sleep( 3_000 );
-		EntryDialogContent addNote = $( EntryDialogContent.class ).first();
-		addNote.addNoteButton().click();
-		addNote.noteText().setValue( "document 1" );
-		addNote.expiresDate().setDate( LocalDate.of( 2024, 12, 12 ) );
-		addNote.attachButton().click();
-		addNote.attachmentType().selectByText( "Annuity Owner Questionnaire" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Annuity Questionnare.pdf" ) );
-		Thread.sleep( 3_000 );
-		addNote.attachButton().click();
-		addNote.attachmentType().selectByText( "Final Application" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf") );
-		Thread.sleep( 3_000 );
-		addNote.attachButton().click();
-		addNote.attachmentType().selectByText( "Sales Representative Disclosure" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Sales Representative.pdf" ) );
-		Thread.sleep( 3_000 );
-		addNote.attachButton().click();
-		addNote.attachmentType().selectByText( "Final Illustration" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Illustration .pdf" ) );
-		addNote.okButton().click();
-		addNote.closeButton().click();
-		NaviMenuView iGO = $( NaviMenuView.class ).first();
-		iGO.checkIGO().click();
-		Thread.sleep( 3_000 );
-		Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
-			"Screenshot 2024-06-04 171743.png" ) ) );
-		ApplicationView getIssueButton = $( ApplicationView.class ).first();
-		Assertions.assertTrue( getIssueButton.issueButton().isDisplayed() );
-		NaviMenuView addSuspense = $( NaviMenuView.class ).first();
-		addSuspense.suspense().click();
-		ApplicationView addSuspenseButton = $( ApplicationView.class ).first();
-		addSuspenseButton.addSuspense().click();
-		EntryDialogContent suspenseSource = $( EntryDialogContent.class ).first();
-		suspenseSource.suspenseAmount().sendKeys( "100000" );
-		suspenseSource.suspenseSource().selectByText( "Check" );
-		suspenseSource.processButton().click();
-
-		NaviMenuView iGOIssue = $( NaviMenuView.class ).first();
-		iGOIssue.checkIGO().click();
-		ApplicationView issue = $( ApplicationView.class ).first();
-		issue.issueButton().click();
-		VaadinConfirmDialogView confirmButton = $( VaadinConfirmDialogView.class ).first();
-		confirmButton.getSaveButton().click();
-
-		NaviMenuView getTransactions = $( NaviMenuView.class ).first();
-		getTransactions.transactionsSPIA().click();
-		ScenarioView transaction = $( ScenarioView.class ).first();
-		transaction.processActivateTransactionButton().click();
-		VaadinConfirmDialogView confirmation = $( VaadinConfirmDialogView.class ).first();
-		confirmation.getSaveButton().click();
-		Thread.sleep( 10_000 );
-		transaction.processInitialPremiumTransactionButton().click();
-		VaadinConfirmDialogView okButton = $( VaadinConfirmDialogView.class ).first();
-		okButton.getSaveButton().click();
-		ScenarioView getPolicyStatus = $(ScenarioView.class).first();
-		Assertions.assertEquals( "Annuitized",getPolicyStatus.policyStatus().getText() );
-
-*/
 
 	}
 

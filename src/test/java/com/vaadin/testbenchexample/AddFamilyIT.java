@@ -113,7 +113,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		AddFamilyView addBankAccount = $(AddFamilyView.class).first();
 		addBankAccount.addBankButton().click();
 		EntryDialogContent bankAccount =$(EntryDialogContent.class).first();
-		bankAccount.addAccount( "Bank of America","Norfolk","051000017" );
+		bankAccount.addAccount( "Bank of America","Norfolk","051000017","1234566789" );
         bankAccount.getBankState().selectByText( "VA" );
 		bankAccount.getAccountType().selectByText( "Checking" );
 		Assertions.assertEquals( "Bank of America",bankAccount.getFinancialInstitutionName().getValue() );
@@ -121,6 +121,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		Assertions.assertEquals( "051000017",bankAccount.getRoutingNumber().getValue() );
 		Assertions.assertEquals( "VA",bankAccount.getBankState().getSelectedText() );
 		Assertions.assertEquals( "Checking",bankAccount.getAccountType().getSelectedText() );
+		Assertions.assertEquals( "****566789",bankAccount.getAccountNumberUnmasked().getValue() );
 		bankAccount.okButton().click();
 		AddFamilyView saveButton = $ (AddFamilyView.class).first();
 		saveButton.getSaveButton().click();
@@ -181,17 +182,65 @@ public class AddFamilyIT extends BaseLoginTest {
 		setAddress.clearAddress();
 		setAddress.address( "111 Main Street", "234 Street", "Norfolk", "23503" );
 		setAddress.getState().selectByText( "VA" );
-	//	setAddress.getDefaultBilling().click();
-		setAddress.getDefaultResidence().click();
+		setAddress.getDefaultBilling().click();
+	//	setAddress.getDefaultResidence().click();
 		Assertions.assertEquals( "VA", setAddress.getState().getSelectedText() );
 		Assertions.assertEquals( "111 Main Street", setAddress.getLine1().getValue() );
 		Assertions.assertEquals( "234 Street", setAddress.getLine2().getValue() );
-		Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
+		Assertions.assertTrue( setAddress.getDefaultBilling().isChecked() );
 		Assertions.assertEquals( "23503",setAddress.getZip().getValue() );
 		setAddress.getCancelButton().click();
-	//	setAddress.getEditOkButton().click();
-	//	edit.getSaveButton().click();
+		setAddress.getEditOkButton().click();
+		edit.getSaveButton().click();
 
+	}
+	@Test
+	public void addBeneficiary() throws InterruptedException {
+		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
+		getSelectButton.getSelectItem().selectItemByIndex( 4 );
+		SearchComponentView getPolicy = $( SearchComponentView.class ).first();
+		getPolicy.searchByPolicy().sendKeys( "AM00000025" );
+		getPolicy.searchButton().click();
+		getPolicy.family().getCell( "AM00000025" ).click();
+		NaviMenuView getBeneficiaries = $( NaviMenuView.class ).first();
+		getBeneficiaries.beneficiaries().click();
+		ScenarioView addBeneficiary = $(ScenarioView.class).first();
+		addBeneficiary.getAddBeneButton().click();
+		EntryDialogContent bene = $(EntryDialogContent.class).first();
+		bene.selectBene().selectByText("Add New");
+		bene.okButton().click();
+		Thread.sleep( 3_000 );
+		EntryDialogContent newBeneficiary =$(EntryDialogContent.class).first();
+		newBeneficiary.addBeneficiary("Harry","Potter","253446453","chernyakma@yahoo.com","1234567890");
+		newBeneficiary.dob().setDate( LocalDate.of( 1980, 8, 25 ) );
+		newBeneficiary.gender().selectByText("Male");
+		Assertions.assertEquals("Potter",newBeneficiary.lastName().getValue());
+		Assertions.assertEquals("8/25/1980",newBeneficiary.dob().getInputValue());
+		Assertions.assertEquals("253-44-6453",newBeneficiary.ssn().getValue());
+		Assertions.assertEquals("chernyakma@yahoo.com",newBeneficiary.email().getValue());
+		newBeneficiary.okButton().click();
+		ScenarioView beneficiary = $(ScenarioView.class).first();
+		beneficiary.getSaveButton().click();
+		Thread.sleep( 3_000 );
+		VaadinConfirmDialogView confirm = $ (VaadinConfirmDialogView.class).first();
+		confirm.getDeleteButton().click();
+		NaviMenuView family = $( NaviMenuView.class ).first();
+		family.getFamily().click();
+		ScenarioView getBeneficiary = $(ScenarioView.class).first();
+		Assertions.assertTrue(getBeneficiary.family().getCell("Potter").isDisplayed());
+		getBeneficiary.getDeleteFamilyBeneButton().click();
+		VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
+		delete.getSaveButton().click();
+		getBeneficiary.policyNumber().getCell("AM00000025").click();
+		family.beneficiaries().click();
+		ScenarioView deleteBene =$(ScenarioView.class).first();
+		deleteBene.getDeleteBeneButton().click();
+		deleteBene.getSaveButton().click();
+		Thread.sleep( 3_000 );
+		VaadinConfirmDialogView ok = $ (VaadinConfirmDialogView.class).first();
+		ok.getDeleteButton().click();
+	//	ScenarioView deleteBene =$(ScenarioView.class).first();
+	//	deleteBene.getDeleteBeneButton().click();
 	}
 
 /*	@Test
