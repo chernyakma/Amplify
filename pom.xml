@@ -6,6 +6,24 @@
   <artifactId>Amplify</artifactId>
   <name>Amplify</name>
   <version>1.0-SNAPSHOT</version>
+
+    <reporting>
+        <plugins>
+            <!-- Surefire Report Plugin for HTML Reports -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>3.5.2</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets><!-- Use the latest version -->
+            </plugin>
+        </plugins>
+    </reporting>
   <packaging>jar</packaging>
   <properties>
  <maven.compiler.source>17</maven.compiler.source>
@@ -226,32 +244,31 @@
           </plugin>
 
             <!-- Maven Surefire Plugin -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <version>3.21.0</version>
+        </plugin>
 
-
-
+        <!-- Surefire Plugin Configuration -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.5.2</version>
+            <configuration>
+                <includes>
+                    <include>UniversalLifeIT.java</include>
+                    <include>WholeLifeIT.java</include>
+                    <include>BaseLoginTest.java</include>
+                    <include>AddFamilyIT.java</include>
+                </includes>
+                <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                <printSummary>true</printSummary>
+            </configuration>
+        </plugin>
     </plugins>
   </build>
- <profiles>
-        <profile>
-            <id>production</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.vaadin</groupId>
-                        <artifactId>vaadin-maven-plugin</artifactId>
-                        <version>${vaadin.version}</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>build-frontend</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
 
 <!-- Other configurations -->
