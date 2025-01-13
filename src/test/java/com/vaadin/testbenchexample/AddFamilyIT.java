@@ -67,7 +67,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 3 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchBySSN().sendKeys( "511-20-7943" );
+		getFamily.searchBySSN().setValue( "511-20-7943" );
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Palmer" ).click();
 
@@ -211,7 +211,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		bene.okButton().click();
 		Thread.sleep( 3_000 );
 		EntryDialogContent newBeneficiary =$(EntryDialogContent.class).first();
-		newBeneficiary.addBeneficiary("Harry","Potter","253446453","chernyakma@yahoo.com","1234567890");
+		newBeneficiary.addBeneficiary("Harry","Potter","253-44-6453","chernyakma@yahoo.com","1234567890");
 		newBeneficiary.dob().setDate( LocalDate.of( 1980, 8, 25 ) );
 		newBeneficiary.gender().selectByText("Male");
 		Assertions.assertEquals("Potter",newBeneficiary.lastName().getValue());

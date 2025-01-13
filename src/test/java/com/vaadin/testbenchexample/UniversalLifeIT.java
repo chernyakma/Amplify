@@ -317,7 +317,7 @@ public class UniversalLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 3 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchBySSN().sendKeys( "511-20-7943" );
+		getFamily.searchBySSN().setValue( "511-20-7943" );
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Palmer" ).click();
 		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
@@ -370,11 +370,17 @@ public class UniversalLifeIT extends BaseLoginTest {
 		addNote.expiresDate().setDate( LocalDate.of( 2024, 12, 12 ) );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Application" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf") );
+	//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf") );
+		String filePathApp = System.getenv("UPLOAD_FILE_PATH_App");
+		File fileToUploadApp = new File(filePathApp);
+		addNote.uploadFileButton().upload(fileToUploadApp);
 		Thread.sleep( 5_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Illustration" );
-		addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Illustration .pdf" ) );
+	//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Illustration .pdf" ) );
+		String filePathIll = System.getenv("UPLOAD_FILE_PATH_ILL");
+		File fileToUploadIll = new File(filePathIll);
+		addNote.uploadFileButton().upload(fileToUploadIll);
 		addNote.okButton().click();
 		addNote.closeButton().click();
 		NaviMenuView iGO = $( NaviMenuView.class ).first();

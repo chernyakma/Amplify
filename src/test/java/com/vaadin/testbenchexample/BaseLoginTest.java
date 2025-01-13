@@ -50,15 +50,16 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 */
 
 
-	/*	@After
+		@After
 	public void tearDown() throws Exception {
 			getDriver().quit();
 	}
-*/
+
 	@Before
 	public void setUp() {
 	// Configure download preferences for Chrome
-	String downloadFilepath = "C:\\Users\\MariiaCherniak\\Documents\\GitHub\\Amplify\\downloadFiles";
+//	String downloadFilepath = "C:\\Users\\MariiaCherniak\\Documents\\GitHub\\Amplify\\downloadFiles";
+	String downloadFilepath = System.getProperty("user.dir") + File.separator + "downloadFiles";
 	Map<String, Object> prefs = new HashMap<>();
 	prefs.put("download.default_directory", downloadFilepath);
 	prefs.put("download.prompt_for_download", false); // Disable download prompts
@@ -69,7 +70,7 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	options.setExperimentalOption("prefs", prefs);
 
 	// Optional: If you want to run the tests in headless mode (without a UI)
-	// options.addArguments("--headless", "--disable-gpu");
+	 options.addArguments("--headless", "--disable-gpu");
 //	setDriver(new ChromeDriver());
 	// Initialize the ChromeDriver with the specified options and capabilities
 //	driver = new ChromeDriver(options);
