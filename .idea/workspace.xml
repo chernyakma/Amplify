@@ -8,9 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/downloadFiles/Reference.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/downloadFiles/Reference.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/AddFamilyIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/AddFamilyIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/AddFamilyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/AddFamilyView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/ApplicationView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/BaseLoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/BaseLoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/EntryDialogContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/EntryDialogContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/NaviMenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/NaviMenuView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/ScenarioView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/ScenarioView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/UniversalLifeIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/UniversalLifeIT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;chernyakma&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/chernyakma/Amplify.git&quot;,
+    &quot;accountId&quot;: &quot;5fde13aa-7356-49bd-9382-4aa993249709&quot;
+  }
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -46,28 +60,31 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.AddFamilyIT.addBank.executor": "Run",
-    "JUnit.AddFamilyIT.addBeneficiary.executor": "Run",
-    "JUnit.AddFamilyIT.addFamily.executor": "Run",
-    "JUnit.AddFamilyIT.addSpouse.executor": "Run",
-    "JUnit.AddFamilyIT.editAddress.executor": "Run",
-    "JUnit.AddFamilyIT.executor": "Run",
-    "JUnit.AddFamilyIT.familyAddress.executor": "Run",
-    "JUnit.UniversalLifeIT.addLoan.executor": "Run",
-    "JUnit.UniversalLifeIT.addNewBusiness.executor": "Run",
-    "JUnit.UniversalLifeIT.addSuspense.executor": "Run",
-    "JUnit.UniversalLifeIT.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/MariiaCherniak/Documents/GitHub/new",
-    "settings.editor.selected.configurable": "project.propCompiler"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.AddFamilyIT.addBank.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AddFamilyIT.addBeneficiary.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AddFamilyIT.addFamily.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AddFamilyIT.addNewOwner.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.AddFamilyIT.addOtherRoles.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AddFamilyIT.addSpouse.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AddFamilyIT.editAddress.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AddFamilyIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AddFamilyIT.familyAddress.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UniversalLifeIT.addLoan.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UniversalLifeIT.addNewBusiness.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UniversalLifeIT.addNewBusinessEFT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UniversalLifeIT.addSuspense.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UniversalLifeIT.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/MariiaCherniak/Documents/GitHub/new&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.UniversalLifeIT">
-    <configuration name="AddFamilyIT.addBeneficiary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+}</component>
+  <component name="RunManager" selected="JUnit.UniversalLifeIT.addNewBusinessEFT">
+    <configuration name="AddFamilyIT.addNewOwner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Amplify" />
       <extension name="coverage">
         <pattern>
@@ -77,13 +94,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.vaadin.testbenchexample" />
       <option name="MAIN_CLASS_NAME" value="com.vaadin.testbenchexample.AddFamilyIT" />
-      <option name="METHOD_NAME" value="addBeneficiary" />
+      <option name="METHOD_NAME" value="addNewOwner" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddFamilyIT.addFamily" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AddFamilyIT.addOtherRoles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Amplify" />
       <extension name="coverage">
         <pattern>
@@ -93,23 +110,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.vaadin.testbenchexample" />
       <option name="MAIN_CLASS_NAME" value="com.vaadin.testbenchexample.AddFamilyIT" />
-      <option name="METHOD_NAME" value="addFamily" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AddFamilyIT.addSpouse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Amplify" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.vaadin.testbenchexample.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.vaadin.testbenchexample" />
-      <option name="MAIN_CLASS_NAME" value="com.vaadin.testbenchexample.AddFamilyIT" />
-      <option name="METHOD_NAME" value="addSpouse" />
+      <option name="METHOD_NAME" value="addOtherRoles" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -125,6 +126,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.vaadin.testbenchexample" />
       <option name="MAIN_CLASS_NAME" value="com.vaadin.testbenchexample.UniversalLifeIT" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -142,30 +144,40 @@
       <option name="MAIN_CLASS_NAME" value="com.vaadin.testbenchexample.UniversalLifeIT" />
       <option name="METHOD_NAME" value="addNewBusiness" />
       <option name="TEST_OBJECT" value="method" />
-      <envs>
-        <env name="UPLOAD_FILE_PATH" value="C:\Users\MariiaCherniak\Documents\GitHub\Amplify\src\test\resources\Annuity Questionnare.pdf" />
-        <env name="UPLOAD_FILE_PATH_App" value="C:\Users\MariiaCherniak\Documents\GitHub\Amplify\src\test\resources\Final Application.pdf" />
-        <env name="UPLOAD_FILE_PATH_ILL" value="C:\Users\MariiaCherniak\Documents\GitHub\Amplify\src\test\resources\Final Illustration.pdf" />
-        <env name="UPLOAD_FILE_PATH_SALES" value="C:\Users\MariiaCherniak\Documents\GitHub\Amplify\src\test\resources\Sales Representative.pdf" />
-      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UniversalLifeIT.addNewBusinessEFT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Amplify" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vaadin.testbenchexample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vaadin.testbenchexample" />
+      <option name="MAIN_CLASS_NAME" value="com.vaadin.testbenchexample.UniversalLifeIT" />
+      <option name="METHOD_NAME" value="addNewBusinessEFT" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.UniversalLifeIT" />
-      <item itemvalue="JUnit.AddFamilyIT.addBeneficiary" />
-      <item itemvalue="JUnit.AddFamilyIT.addFamily" />
-      <item itemvalue="JUnit.AddFamilyIT.addSpouse" />
       <item itemvalue="JUnit.UniversalLifeIT.addNewBusiness" />
+      <item itemvalue="JUnit.AddFamilyIT.addNewOwner" />
+      <item itemvalue="JUnit.AddFamilyIT.addOtherRoles" />
+      <item itemvalue="JUnit.UniversalLifeIT.addNewBusinessEFT" />
+      <item itemvalue="JUnit.UniversalLifeIT" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UniversalLifeIT" />
+        <item itemvalue="JUnit.UniversalLifeIT.addNewBusinessEFT" />
         <item itemvalue="JUnit.UniversalLifeIT.addNewBusiness" />
-        <item itemvalue="JUnit.AddFamilyIT.addFamily" />
-        <item itemvalue="JUnit.AddFamilyIT.addSpouse" />
-        <item itemvalue="JUnit.AddFamilyIT.addBeneficiary" />
+        <item itemvalue="JUnit.AddFamilyIT.addOtherRoles" />
+        <item itemvalue="JUnit.AddFamilyIT.addNewOwner" />
+        <item itemvalue="JUnit.UniversalLifeIT" />
       </list>
     </recent_temporary>
   </component>

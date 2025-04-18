@@ -1,4 +1,5 @@
 package com.vaadin.testbenchexample;
+import com.vaadin.flow.component.select.testbench.SelectElement;
 import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,7 +14,7 @@ import com.vaadin.testbench.elementsbase.Element;
 import javassist.bytecode.stackmap.TypeData;
 
 @Element( "scenario-view" )
-//@Element( "scenario-component" )
+
 public class ScenarioView extends TestBenchElement {
 
 	protected ButtonElement getAddButton() {
@@ -61,6 +62,23 @@ public class ScenarioView extends TestBenchElement {
 	protected ButtonElement getDeleteButton() {
 
 		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("S1").$(TestBenchElement.class).id("FamilyAddressTable").$(ButtonElement.class).get(2);
+	}
+	protected ButtonElement getDeleteFamilyOwner() {
+
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("family-member-page").first().$(TestBenchElement.class).id("membersDiv").$(TestBenchElement.class).id("Members").$(TestBenchElement.class).id("section").$("search-component").first().$(ButtonElement.class).get(4);
+	}
+	protected ButtonElement getDeleteRoleButton() {
+
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("S0").$(TestBenchElement.class).id("RoleTable").$(TestBenchElement.class).id("grid").$(ButtonElement.class).get(2);
+	}
+	protected ButtonElement getDeleteFamilyOther() {
+
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("family-member-page").first().$(TestBenchElement.class).id("membersDiv").$(TestBenchElement.class).id("Members").$(TestBenchElement.class).id("section").$("search-component").first().$(ButtonElement.class).get(3);
+	}
+	protected ButtonElement getAddOtherRolesButton() {
+
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("S0").$(TestBenchElement.class).id("RoleTable").$(ButtonElement.class).first();
+
 	}
 
 	protected ButtonElement addMemberButton() {
@@ -150,6 +168,12 @@ public class ScenarioView extends TestBenchElement {
 	protected ButtonElement getDeleteFamilyBeneButton() {
 
 		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("family-member-page").first().$(TestBenchElement.class).id("membersDiv").$(TestBenchElement.class).id("Members").$(TestBenchElement.class).id("section").$("search-component").first().$(ButtonElement.class).get(3);
+	}
+	protected ButtonElement newOwner() {
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("OwnerSection").$(TestBenchElement.class).id("OwnerDialog").$(ButtonElement.class).first();
+	}
+	protected SelectElement ownerGUID() {
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("OwnerSection").$(SelectElement.class).id("OwnerGUID");
 	}
 }
 

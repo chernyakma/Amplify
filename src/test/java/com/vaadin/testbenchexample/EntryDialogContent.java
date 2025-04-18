@@ -155,6 +155,20 @@ public class EntryDialogContent extends TestBenchElement {
     protected RadioButtonGroupElement defaultAddress (){
 		return $(TestBenchElement.class).id("FldSec_1" ).$(RadioButtonGroupElement.class).first();
 	}
+	protected DatePickerElement effectiveDate (){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(DatePickerElement.class).id("EffectiveDate");
+	}
+	//0wner
+	protected SelectElement relationship(){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(SelectElement.class).id("RelationshipType");
+	}
+	//other
+	protected SelectElement roleType(){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(SelectElement.class).id("RoleType");
+	}
+	protected SelectElement relation(){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(SelectElement.class).id("RelationToPrimaryInsured");
+	}
 
 	public void addBeneficiary (String firstName,String lastName,String ssn,String email,String phoneNumber){
 	firstName().sendKeys(firstName);

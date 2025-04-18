@@ -4,6 +4,7 @@ import com.vaadin.flow.component.combobox.testbench.ComboBoxElement;
 import com.vaadin.flow.component.datepicker.testbench.DatePickerElement;
 import com.vaadin.flow.component.grid.testbench.GridElement;
 import com.vaadin.flow.component.radiobutton.testbench.RadioButtonGroupElement;
+import com.vaadin.flow.component.select.testbench.SelectElement;
 import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
 import com.vaadin.testbench.TestBenchElement;
 import com.vaadin.testbench.elementsbase.Element;
@@ -26,6 +27,11 @@ public class ApplicationView extends TestBenchElement {
 	protected DatePickerElement applicationReceivedDate() {
 
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "Application" ).$( DatePickerElement.class ).id( "ApplicationReceivedDate" );
+
+	}
+	protected SelectElement paymentMethod() {
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "Policy" ).$( SelectElement.class ).id( "PaymentMethod" );
 
 	}
 
@@ -106,7 +112,7 @@ public class ApplicationView extends TestBenchElement {
 		String fileName = "Point of Sale.pdf";
 		File downloadedFile = new File(downloadDir + "\\" + fileName);
 
-		File referenceFile = new File(System.getProperty("user.dir") + "/downloadFiles/Reference.pdf");
+		File referenceFile = new File(System.getProperty("user.dir") + "/src/test/resources/Reference.pdf");
 	//	File referenceFile = new File("C:\\Users\\MariiaCherniak\\Documents\\GitHub\\Amplify\\downloadFiles\\Reference.pdf");
 	//	File referenceFile = new File("C:\\Users\\MariiaCherniak\\Downloads\\Change Management Request -  CM400.pdf");
 		boolean testPassed = false;
@@ -135,13 +141,15 @@ public class ApplicationView extends TestBenchElement {
 		}
 		}
 
-	public void compareAndDeleteDownloadedPdfSPDA() throws Exception {
+	public void compareAndDeleteDownloadedPdfFPIULEFT() throws Exception {
 
-		String downloadDir = "C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\downloadFiles";
-		String fileName = "NewBusiness.pdf";
+		//	String downloadDir = "C:\\Users\\MariiaCherniak\\Documents\\GitHub\\Amplify\\downloadFiles";
+		String downloadDir = System.getProperty("user.dir") + "/downloadFiles";
+		String fileName = "Point of Sale.pdf";
 		File downloadedFile = new File(downloadDir + "\\" + fileName);
 
-		File referenceFile = new File("C:\\Users\\MariiaCherniak\\Documents\\GitHub\\new\\downloadFiles\\ReferenceIllusSPDA.pdf");
+		File referenceFile = new File(System.getProperty("user.dir") + "/src/test/resources/ReferenceEFT.pdf");
+		//	File referenceFile = new File("C:\\Users\\MariiaCherniak\\Documents\\GitHub\\Amplify\\downloadFiles\\Reference.pdf");
 		//	File referenceFile = new File("C:\\Users\\MariiaCherniak\\Downloads\\Change Management Request -  CM400.pdf");
 		boolean testPassed = false;
 		try {
@@ -169,4 +177,4 @@ public class ApplicationView extends TestBenchElement {
 		}
 	}
 
-	}
+}

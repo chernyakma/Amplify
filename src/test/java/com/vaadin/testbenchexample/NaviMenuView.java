@@ -34,6 +34,10 @@ public class NaviMenuView extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 13 );
 	}
+	protected TestBenchElement otherRoles() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(21);
+	}
 //SPDA
 	protected TestBenchElement getDocumentSPDA() {
 
@@ -58,6 +62,10 @@ public class NaviMenuView extends TestBenchElement {
 	protected TestBenchElement checkIGO() {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 17 );
+	}
+	protected TestBenchElement payorAndOwner() {
+
+		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(13);
 	}
 	//SPDA
 	protected TestBenchElement checkSpdaIGO() {
