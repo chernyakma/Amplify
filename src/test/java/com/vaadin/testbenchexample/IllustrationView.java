@@ -20,22 +20,9 @@ public class IllustrationView extends TestBenchElement {
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( ButtonElement.class ).get( 2 );
 	}
 
-	//SPIA
 	protected ButtonElement getApplyButtonReport() {
 
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( ButtonElement.class ).get( 4 );
-	}
-
-	//SPDA
-	protected ButtonElement getSaveButtonResult() {
-
-		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "componentContent" ).$( ButtonElement.class ).get( 1 );
-	}
-
-	//WL
-	protected ButtonElement getApplyButtonWL() {
-
-		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( ButtonElement.class ).get( 7 );
 	}
 
 	protected ButtonElement getApplyButtonResult() {

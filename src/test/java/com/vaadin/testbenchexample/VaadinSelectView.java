@@ -11,6 +11,7 @@ import com.vaadin.testbench.elementsbase.Element;
 public class VaadinSelectView extends TestBenchElement {
 
 	protected SelectElement getSelectItem(){
+
 		return $(SelectElement.class).first();
 	}
 

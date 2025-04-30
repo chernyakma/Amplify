@@ -15,6 +15,7 @@ public class SearchComponentView extends TestBenchElement {
 
 	}
 	protected TextFieldElement searchByPolicy(){
+
 		return $( TestBenchElement.class ).id( "Search" ).$( TextFieldElement.class ).id( "PolicyNumber" );
 	}
 
@@ -24,9 +25,13 @@ public class SearchComponentView extends TestBenchElement {
 
 	}
 	protected ButtonElement searchButton (){
+
 		return $(ButtonElement.class).first();
 	}
-	protected GridElement family (){ return $(GridElement.class).first(); }
+	protected GridElement family (){
+
+		return $(GridElement.class).first();
+	}
 
 
 }

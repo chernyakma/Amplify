@@ -38,9 +38,8 @@ public class AddFamilyIT extends BaseLoginTest {
 
 	public void addFamily() {
 
-		getDriver().get( "http://localhost:8080/amplify_webui/familyInsured" );
-	//	getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/navy_webui/familyInsured");
-	//	getDriver().get( "https://test.navymutual.calcfocus.net/policyadmin/familyInsured/" );
+	//	getDriver().get( "http://localhost:8080/amplify_webui/familyInsured" );
+		getDriver().get( "https://test.amplify.calcfocus.net/achieve/familyInsured/");
 		AddFamilyView family = $( AddFamilyView.class ).first();
 		family.addFamily(  );
 		family.getSuffix().selectByText("Sr.");
@@ -67,7 +66,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 3 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchBySSN().setValue( "511-20-7943" );
+		getFamily.searchBySSN().setValue( "511207944" );
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Palmer" ).click();
 
@@ -103,7 +102,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 3 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchBySSN().sendKeys( "511-20-7943" );
+		getFamily.searchBySSN().sendKeys( "511-20-7944" );
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Palmer" ).click();
 		ScenarioView editMember= $(ScenarioView.class).first();
@@ -135,7 +134,7 @@ public class AddFamilyIT extends BaseLoginTest {
 	VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
     getSelectButton.getSelectItem().selectItemByIndex( 3 );
 	SearchComponentView getFamily = $( SearchComponentView.class ).first();
-	getFamily.searchBySSN().sendKeys( "511-20-7943" );
+	getFamily.searchBySSN().sendKeys( "511-20-7944" );
 	getFamily.searchButton().click();
 	getFamily.family().getCell( "Palmer" ).click();
 	NaviMenuView getAddress = $(NaviMenuView.class).first();
@@ -148,15 +147,16 @@ public class AddFamilyIT extends BaseLoginTest {
 	setAddress.getState().selectByText( "VA" );
 	setAddress.getAddressType().selectItemByIndex( 2 );
 	Assertions.assertEquals( "Mailing",setAddress.getAddressType().getSelectedText() );
-	setAddress.getDefaultMailing().click();
-//	setAddress.getDefaultBilling().click();
+//	setAddress.getDefaultMailing().click();
+	setAddress.getDefaultBilling().click();
 //	setAddress.getDefaultResidence().click();
 	Assertions.assertEquals( "VA", setAddress.getState().getSelectedText());
 	Assertions.assertEquals( "11 Liberty Street", setAddress.getLine1().getValue());
 	Assertions.assertEquals( "22 Fox Street", setAddress.getLine2().getValue());
 //	Assertions.assertTrue( setAddress.getDefaultMailing().isChecked() );
-	Assertions.assertTrue( setAddress.getDefaultMailing().isChecked() );
+	Assertions.assertTrue( setAddress.getDefaultBilling().isChecked() );
 //	Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
+
 	setAddress.getOkButton().click();
 	addAddress.getSaveButton().click();
 	addAddress.getDeleteButton().click();
@@ -171,7 +171,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 3 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchBySSN().sendKeys( "511-20-7943" );
+		getFamily.searchBySSN().sendKeys( "511-20-7944" );
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Palmer" ).click();
 		NaviMenuView getAddress = $( NaviMenuView.class ).first();
@@ -182,12 +182,12 @@ public class AddFamilyIT extends BaseLoginTest {
 		setAddress.clearAddress();
 		setAddress.address( "111 Main Street", "234 Street", "Norfolk", "23503" );
 		setAddress.getState().selectByText( "VA" );
-		setAddress.getDefaultBilling().click();
-	//	setAddress.getDefaultResidence().click();
+	//	setAddress.getDefaultBilling().click();
+		setAddress.getDefaultResidence().click();
 		Assertions.assertEquals( "VA", setAddress.getState().getSelectedText() );
 		Assertions.assertEquals( "111 Main Street", setAddress.getLine1().getValue() );
 		Assertions.assertEquals( "234 Street", setAddress.getLine2().getValue() );
-		Assertions.assertTrue( setAddress.getDefaultBilling().isChecked() );
+		Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
 		Assertions.assertEquals( "23503",setAddress.getZip().getValue() );
 		setAddress.getCancelButton().click();
 		setAddress.getEditOkButton().click();
@@ -199,9 +199,9 @@ public class AddFamilyIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 4 );
 		SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-		getPolicy.searchByPolicy().sendKeys( "AM00000025" );
+		getPolicy.searchByPolicy().sendKeys( "AM00004278" );
 		getPolicy.searchButton().click();
-		getPolicy.family().getCell( "AM00000025" ).click();
+		getPolicy.family().getCell( "AM00004278" ).click();
 		NaviMenuView getBeneficiaries = $( NaviMenuView.class ).first();
 		getBeneficiaries.beneficiaries().click();
 		ScenarioView addBeneficiary = $(ScenarioView.class).first();
@@ -231,7 +231,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		getBeneficiary.getDeleteFamilyBeneButton().click();
 		VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
 		delete.getSaveButton().click();
-		getBeneficiary.policyNumber().getCell("AM00000025").click();
+		getBeneficiary.policyNumber().getCell("AM00004278").click();
 		family.beneficiaries().click();
 		ScenarioView deleteBene =$(ScenarioView.class).first();
 		deleteBene.getDeleteBeneButton().click();
@@ -300,9 +300,9 @@ public class AddFamilyIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
 		getSelectButton.getSelectItem().selectByText("Search Policy");;
 		SearchComponentView getPolicy = $(SearchComponentView.class).first();
-		getPolicy.searchByPolicy().sendKeys("AM00000002");
+		getPolicy.searchByPolicy().sendKeys("AM00004278");
 		getPolicy.searchButton().click();
-		getPolicy.family().getCell("AM00000002").click();
+		getPolicy.family().getCell("AM00004278").click();
 		NaviMenuView getOther = $(NaviMenuView.class).first();
 		getOther.otherRoles().click();
 		Thread.sleep(3_000);
@@ -340,7 +340,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		family.getFamily().click();
 		ScenarioView checkOwner = $(ScenarioView.class).first();
 		Assertions.assertTrue(checkOwner.family().getCell("Potter").isDisplayed());
-		checkOwner.policyNumber().getCell("AM00000002").click();
+		checkOwner.policyNumber().getCell("AM00004278").click();
 		NaviMenuView deleteOther = $(NaviMenuView.class).first();
 		deleteOther.otherRoles().click();
 		Thread.sleep(3_000);
@@ -352,6 +352,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		ok.getDeleteButton().click();
 		NaviMenuView deleteFamilyRole = $(NaviMenuView.class).first();
 		deleteFamilyRole.getFamily().click();
+		Thread.sleep(3_000);
 		ScenarioView deleteRole = $(ScenarioView.class).first();
 		deleteRole.getDeleteFamilyOther().click();
 		VaadinConfirmDialogView save = $(VaadinConfirmDialogView.class).first();

@@ -13,7 +13,7 @@ import com.vaadin.testbench.elementsbase.Element;
 
 
 @Element( "NAVI-MENU" )
-//@Attribute(name="class",value="navi-item page-item")
+
 public class NaviMenuView extends TestBenchElement {
 
 	protected TestBenchElement getAddresses() {
@@ -37,11 +37,6 @@ public class NaviMenuView extends TestBenchElement {
 	protected TestBenchElement otherRoles() {
 
 		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(21);
-	}
-//SPDA
-	protected TestBenchElement getDocumentSPDA() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 13 );
 	}
 
 	protected TestBenchElement getNewBusiness() {
@@ -67,29 +62,13 @@ public class NaviMenuView extends TestBenchElement {
 
 		return $(TestBenchElement.class).id("navi-menu").$(IconElement.class).get(13);
 	}
-	//SPDA
-	protected TestBenchElement checkSpdaIGO() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 20 );
-	}
-	protected TestBenchElement suspenseSpda() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 18 );
-	}
 
 	protected TestBenchElement suspense() {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 33 );
 	}
 
-	protected TestBenchElement transactionsFPDR() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 43 );
-	}
-	protected TestBenchElement transactionsSPIA() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 27 );
-	}
 	protected TestBenchElement transactionsWL() {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 29 );
@@ -101,6 +80,10 @@ public class NaviMenuView extends TestBenchElement {
 	protected TestBenchElement transactionsSPDA() {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 33 );
+	}
+	protected TestBenchElement policyTransactions() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 30 );
 	}
 
 	protected TestBenchElement getReport() {

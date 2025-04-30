@@ -7,10 +7,12 @@ import com.vaadin.testbench.elementsbase.Element;
 
 public class VaadinConfirmDialogView extends TestBenchElement {
 	protected ButtonElement getDeleteButton(){
+
 		return  $(ButtonElement.class).first();
 	}
 
 	protected ButtonElement getSaveButton(){
+
 		return  $(ButtonElement.class).last();
 	}
 

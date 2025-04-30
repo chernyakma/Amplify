@@ -7,6 +7,7 @@ import com.vaadin.testbench.elementsbase.Element;
 public class VaadinDevToolsView extends TestBenchElement {
 
 	protected MessageElement dismissMessage (){
+
 		return $(MessageElement.class).first();
 	}
 

@@ -8,8 +8,10 @@ import com.vaadin.testbench.elementsbase.Element;
 @Element( "transaction-view-page" )
 public class TransactionViewPage extends TestBenchElement {
     protected ButtonElement cancel (){
-        {return $( ButtonElement.class ).last();}
+
+        return $( ButtonElement.class ).last();
+    }
     }
 
-}
+
 
