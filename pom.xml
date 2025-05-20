@@ -1,152 +1,157 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <!--  Project from https://start.vaadin.com/project/31b39183-7906-4f2c-8545-74486c00acf8  -->
-  <groupId>com.vaadin</groupId>
-
-  <artifactId>Amplify</artifactId>
-  <name>Amplify</name>
-  <version>1.0-SNAPSHOT</version>
-
+    <modelVersion>4.0.0</modelVersion>
+    <!--  Project from https://start.vaadin.com/project/31b39183-7906-4f2c-8545-74486c00acf8  -->
+    <groupId>com.vaadin</groupId>
+    <artifactId>Amplify</artifactId>
+    <name>Amplify</name>
+    <version>1.0-SNAPSHOT</version>
     <reporting>
+        <outputDirectory>${project.build.directory}/site</outputDirectory>
         <plugins>
-            <!-- Surefire Report Plugin for HTML Reports -->
+            <!-- Generates the standard project site reports (safe with Maven 3.5.2) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>3.5.2</version>
+                <version>3.0.0-M7</version>
                 <reportSets>
                     <reportSet>
                         <reports>
-                            <report>report</report>
+                            <report>report-only</report>
                         </reports>
                     </reportSet>
-                </reportSets><!-- Use the latest version -->
+                </reportSets>
             </plugin>
         </plugins>
     </reporting>
-  <packaging>jar</packaging>
-  <properties>
- <maven.compiler.source>17</maven.compiler.source>
- <maven.compiler.target>17</maven.compiler.target>
- <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
- <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
- <java.version>17</java.version>
- <vaadin.version>24.3.7</vaadin.version>
+    <packaging>jar</packaging>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>17</java.version>
+        <vaadin.version>24.3.7</vaadin.version>
+    </properties>
 
-  </properties>
-
-
-  <repositories>
-    <repository>
-      <id>Vaadin Directory</id>
-      <url>https://maven.vaadin.com/vaadin-addons</url>    
-    </repository>
-<repository>
-  <id>vaadin-prereleases</id>
-  <url>https://maven.vaadin.com/vaadin-prereleases</url>
-  </repository>
-  </repositories>
- <pluginRepositories>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        <repository>
+            <id>Vaadin Directory</id>
+            <url>https://maven.vaadin.com/vaadin-addons</url>
+        </repository>
+        <repository>
+            <id>vaadin-prereleases</id>
+            <url>https://maven.vaadin.com/vaadin-prereleases</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2</url>
+        </pluginRepository>
         <pluginRepository>
             <id>vaadin-prereleases</id>
             <url>https://maven.vaadin.com/vaadin-prereleases</url>
         </pluginRepository>
     </pluginRepositories>
-  <dependencyManagement>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-bom</artifactId>
+                <version>${vaadin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
-      <dependency>
-        <groupId>com.vaadin</groupId>
-        <artifactId>vaadin-bom</artifactId>
-        <version>${vaadin.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <!--  Replace artifactId with vaadin-core to use only free components  -->
+            <artifactId>vaadin</artifactId>
+        </dependency>
 
-  <dependencies>
-    <dependency>
-      <groupId>com.vaadin</groupId>
-      <!--  Replace artifactId with vaadin-core to use only free components  -->
-      <artifactId>vaadin</artifactId>
-    </dependency>
-
-      <dependency>
-          <groupId>org.parttio</groupId>
-          <artifactId>line-awesome</artifactId>
-          <version>2.0.0</version>
-      </dependency>
-    <dependency>
+        <dependency>
+            <groupId>org.parttio</groupId>
+            <artifactId>line-awesome</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
             <version>6.0.0</version>
             <scope>provided</scope>
-    </dependency>
-   <dependency>
+        </dependency>
+        <dependency>
 
-<groupId>com.vaadin</groupId>
-<artifactId>vaadin-testbench</artifactId>
-<scope>test</scope>
-</dependency>
-      <dependency>
-          <groupId>org.apache.poi</groupId>
-          <artifactId>poi</artifactId>
-          <version>5.2.3</version>
-      </dependency>
-      <!-- Apache POI for OOXML (XLSX) Support -->
-      <dependency>
-          <groupId>org.apache.poi</groupId>
-          <artifactId>poi-ooxml</artifactId>
-          <version>5.2.3</version> <!-- Use the latest version -->
-      </dependency>
-      <dependency>
-          <groupId>org.apache.poi</groupId>
-          <artifactId>poi-ooxml-schemas</artifactId>
-          <version>4.1.2</version>
-      </dependency>
-      <!-- Apache XMLBeans for POI -->
-      <dependency>
-          <groupId>org.apache.xmlbeans</groupId>
-          <artifactId>xmlbeans</artifactId>
-          <version>5.1.1</version>
-      </dependency>
-      <dependency>
-          <groupId>org.apache.logging.log4j</groupId>
-          <artifactId>log4j-api</artifactId>
-          <version>2.17.1</version>
-      </dependency>
-      <!-- Log4j2 Core Implementation -->
-      <dependency>
-          <groupId>org.apache.logging.log4j</groupId>
-          <artifactId>log4j-core</artifactId>
-          <version>2.17.1</version>
-      </dependency>
-<dependency>
-<groupId>com.h2database</groupId>
-<artifactId>h2</artifactId>
-    <version>2.2.224</version>
-<scope>runtime</scope>
-</dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-testbench</artifactId>
+            <scope>test</scope>
 
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.2.3</version>
+        </dependency>
+        <!-- Apache POI for OOXML (XLSX) Support -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+        <!-- Apache XMLBeans for POI -->
+        <dependency>
+            <groupId>org.apache.xmlbeans</groupId>
+            <artifactId>xmlbeans</artifactId>
+            <version>5.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.17.1</version>
+        </dependency>
+        <!-- Log4j2 Core Implementation -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.17.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>2.2.224</version>
+            <scope>runtime</scope>
+        </dependency>
 
-  
-    <dependency>
-      <groupId>com.vaadin</groupId>
-      <artifactId>vaadin-testbench-core-junit5</artifactId>
-      <version>9.2.3</version>
-      <scope>test</scope>
-    </dependency>
-  <dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-testbench-core-junit5</artifactId>
+            <version>9.2.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
-      <!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-map-flow -->
-
-
-
-      <dependency>
+        <dependency>
             <groupId>org.jbehave</groupId>
             <artifactId>jbehave-core</artifactId>
             <version>5.1.1</version>
@@ -156,121 +161,128 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
         </dependency>
-<dependency>
+        <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>selenium-jupiter</artifactId>
             <version>5.1.0</version>
             <scope>test</scope>
-</dependency>
-      <dependency>
-          <groupId>io.github.bonigarcia</groupId>
-          <artifactId>webdrivermanager</artifactId>
-          <version>5.7.0</version>
-      </dependency>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>4.27.0</version>
-    </dependency>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.27.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-testbench-core</artifactId>
+            <version>9.2.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>4.18.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
 
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>5.10.2</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.vaadin</groupId>
-      <artifactId>vaadin-testbench-core</artifactId>
-      <version>9.2.2</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-chrome-driver</artifactId>
-      <version>4.18.0</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>RELEASE</version>
-      <scope>test</scope>
-    </dependency>
-      <dependency>
-          <groupId>org.apache.pdfbox</groupId>
-          <artifactId>pdfbox</artifactId>
-          <version>2.0.24</version>
-      </dependency>
-  </dependencies>
-  <build>   
-    <plugins>     
-      <plugin>
-        <groupId>com.vaadin</groupId>
-        <artifactId>vaadin-maven-plugin</artifactId>
-        <version>${vaadin.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>prepare-frontend</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-failsafe-plugin</artifactId>
-            <version>3.1.2</version>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>integration-test</goal>
-                  <goal>verify</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <includes>
-                <include>UniversalLifeIT.java</include>
-                  <include>WholeLifeIT.java</include>
-                  <include>BaseLoginTest.java</include>
-                <include>AddFamilyIT.java</include>
-              </includes>
-              <trimStackTrace>false</trimStackTrace>
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>2.0.24</version>
+        </dependency>
 
+    </dependencies>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <!-- Site Plugin Configuration -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
+            </plugin>
+             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>3.0.0-M7</version>
+                <executions>
+                    <execution>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>report-only</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
 
-                <enableAssertions>true</enableAssertions>
+            <!-- Surefire Plugin Configuration -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
+                <configuration>
+                    <includes>
+                        <include>**/UniversalLifeIT.java</include>
+                        <include>**/WholeLifeIT.java</include>
+                        <include>**/BaseLoginTest.java</include>
+                        <include>**/AddFamilyIT.java</include>
+                    </includes>
+                    <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                    <printSummary>true</printSummary>
+
                 </configuration>
-          </plugin>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>env</executable>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
-            <!-- Maven Surefire Plugin -->
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-site-plugin</artifactId>
-            <version>3.21.0</version>
-        </plugin>
-
-        <!-- Surefire Plugin Configuration -->
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.5.2</version>
-            <configuration>
-                <includes>
-                    <include>UniversalLifeIT.java</include>
-                    <include>WholeLifeIT.java</include>
-                    <include>BaseLoginTest.java</include>
-                    <include>AddFamilyIT.java</include>
-                </includes>
-                <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
-                <redirectTestOutputToFile>true</redirectTestOutputToFile>
-                <printSummary>true</printSummary>
-            </configuration>
-        </plugin>
-    </plugins>
-  </build>
+    <!-- Other sections like profiles, dependencies, etc. -->
 </project>
 
-<!-- Other configurations -->
 
 
