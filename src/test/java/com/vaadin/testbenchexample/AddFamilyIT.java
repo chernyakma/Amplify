@@ -124,8 +124,13 @@ public class AddFamilyIT extends BaseLoginTest {
 		bankAccount.okButton().click();
 		AddFamilyView saveButton = $ (AddFamilyView.class).first();
 		saveButton.getSaveButton().click();
+		EntryDialogContent confirm = $ (EntryDialogContent.class).first();
+		confirm.closeButton().click();
 		addBankAccount.deleteBankButton().click();
 		saveButton.getSaveButton().click();
+		EntryDialogContent secondConfirm = $ (EntryDialogContent.class).first();
+		secondConfirm.closeButton().click();
+
 	}
 
 	@Test
@@ -143,7 +148,7 @@ public class AddFamilyIT extends BaseLoginTest {
 	addAddress.getAddButton().click();
 	AddressView setAddress=$ (AddressView.class).first();
 	setAddress.getCountry().selectByText( "USA" );
-	setAddress.address( "11 Liberty Street","22 Fox Street","Norfolk","23503" );
+	setAddress.address( "25 Main Street","22 Fox Street","Norfolk","23503" );
 	setAddress.getState().selectByText( "VA" );
 	setAddress.getAddressType().selectItemByIndex( 2 );
 	Assertions.assertEquals( "Mailing",setAddress.getAddressType().getSelectedText() );
@@ -151,14 +156,13 @@ public class AddFamilyIT extends BaseLoginTest {
 	setAddress.getDefaultBilling().click();
 //	setAddress.getDefaultResidence().click();
 	Assertions.assertEquals( "VA", setAddress.getState().getSelectedText());
-	Assertions.assertEquals( "11 Liberty Street", setAddress.getLine1().getValue());
+	Assertions.assertEquals( "25 Main Street", setAddress.getLine1().getValue());
 	Assertions.assertEquals( "22 Fox Street", setAddress.getLine2().getValue());
 //	Assertions.assertTrue( setAddress.getDefaultMailing().isChecked() );
 	Assertions.assertTrue( setAddress.getDefaultBilling().isChecked() );
 //	Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
 
 	setAddress.getOkButton().click();
-	addAddress.getSaveButton().click();
 	addAddress.getDeleteButton().click();
 	addAddress.getSaveButton().click();
 

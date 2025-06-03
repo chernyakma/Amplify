@@ -4,7 +4,7 @@ import com.vaadin.flow.component.select.testbench.SelectElement;
 import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.w3c.dom.html.HTMLTableSectionElement;
+
 
 import com.vaadin.flow.component.button.testbench.ButtonElement;
 import com.vaadin.flow.component.grid.testbench.GridElement;
@@ -75,7 +75,7 @@ public class ScenarioView extends TestBenchElement {
 	}
 	protected ButtonElement getDeleteButton() {
 
-		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("S1").$(TestBenchElement.class).id("FamilyAddressTable").$(ButtonElement.class).get(2);
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("S1").$(TestBenchElement.class).id("FamilyAddressTable").$(ButtonElement.class).get(4);
 	}
 	protected ButtonElement getDeleteFamilyOwner() {
 

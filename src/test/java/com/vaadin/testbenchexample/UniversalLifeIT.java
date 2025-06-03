@@ -422,7 +422,7 @@ public class UniversalLifeIT extends BaseLoginTest {
 		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
 		newBusiness.getNewBusiness().click();
 		NewIllustrationView addNewBusiness = $( NewIllustrationView.class ).first();
-			addNewBusiness.effectiveDate().setDate(LocalDate.of(2025,05,1));
+//			addNewBusiness.effectiveDate().setDate(LocalDate.of(2025,05,1));
 		addNewBusiness.getProductType().selectByText( "Indexed Universal Life" );
 		addNewBusiness.getFaceAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "100000" );
 //		addNewBusiness.getInsured().selectItemByIndex( 0 );
@@ -454,9 +454,9 @@ public class UniversalLifeIT extends BaseLoginTest {
 		application.applicationFundsReceived().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.applicationFundsReceived().getSelectedText() );
 		application.paymentMethod().selectByText("Electronic Fund Transfer");
-//		application.cashWithApplication().selectByText( "Yes" );
-//		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
-//		application.cashWithApplicationReceivedDate().setDate( LocalDate.now() );
+		application.cashWithApplication().selectByText( "Yes" );
+		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
+		application.cashWithApplicationReceivedDate().setDate( LocalDate.now() );
 
 		NaviMenuView getDocument = $( NaviMenuView.class ).first();
 		getDocument.getDocument().click();
@@ -510,9 +510,9 @@ public class UniversalLifeIT extends BaseLoginTest {
 		getSelectButton.getSelectItem().selectByText("Search Policy");
 
 		SearchComponentView getPolicy = $(SearchComponentView.class).first();
-		getPolicy.searchByPolicy().sendKeys("AM00004291");
+		getPolicy.searchByPolicy().sendKeys("AM00004709");
 		getPolicy.searchButton().click();
-		getPolicy.family().getCell("AM00004291").click();
+		getPolicy.family().getCell("AM00004709").click();
 
 		NaviMenuView transaction = $(NaviMenuView.class).first();
 		transaction.policyTransactions().click();
