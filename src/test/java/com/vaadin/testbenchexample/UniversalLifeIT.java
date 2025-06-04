@@ -272,9 +272,9 @@ public class UniversalLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 4 );
 		SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-		getPolicy.searchByPolicy().sendKeys( "AM00004207" );
+		getPolicy.searchByPolicy().sendKeys( "AM00004040" );
 		getPolicy.searchButton().click();
-		getPolicy.family().getCell( "AM00004207" ).click();
+		getPolicy.family().getCell( "AM00004040" ).click();
 		NaviMenuView transaction = $( NaviMenuView.class ).first();
 		transaction.transactionsWL().click();
 		ScenarioView loanTransaction = $(ScenarioView.class).first();
@@ -438,6 +438,8 @@ public class UniversalLifeIT extends BaseLoginTest {
 		confirm.getSaveButton().click();
 
 		ApplicationView application = $( ApplicationView.class ).first();
+		waitUntil(driver -> application.getAgentNumber().isDisplayed(), 60);
+		application.getAgentNumber().openPopup();
 		application.getAgentNumber().sendKeys("MC001");
 		Thread.sleep( 3_000 );
 	//	application.getAgentNumber().sendKeys(Keys.ARROW_DOWN);
