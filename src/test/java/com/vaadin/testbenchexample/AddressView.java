@@ -49,7 +49,7 @@ public class AddressView extends TestBenchElement
 		return $(TestBenchElement.class).id( "S2" ).$(CheckboxElement.class).get( 1 );
 	}
 	protected CheckboxElement getDefaultBilling ( ) {
-		return $(TestBenchElement.class).id( "S2" ).$(CheckboxElement.class).last();
+		return $(TestBenchElement.class).id( "S2" ).$(CheckboxElement.class).get(2);
 	}
 	protected ButtonElement getOkButton(){
 		return $(ButtonElement.class).first();
