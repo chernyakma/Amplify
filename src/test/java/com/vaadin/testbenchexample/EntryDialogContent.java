@@ -99,7 +99,7 @@ public class EntryDialogContent extends TestBenchElement {
 	protected TextFieldElement suspenseAmount(){
 		return $(TestBenchElement.class).id( "mainContent" ).$(TextFieldElement.class).first();
 	}
-	protected DatePickerElement effectveDate() {
+	protected DatePickerElement LoanEffectveDate() {
 		return $(TestBenchElement.class).id( "mainContent" ).$(DatePickerElement.class).first();
 	}
 	protected SelectElement fromAccount () {
@@ -141,6 +141,7 @@ public class EntryDialogContent extends TestBenchElement {
 	protected SelectElement disbursementMethod (){
 		return $(TestBenchElement.class).id( "InputsSection" ).$( SelectElement.class).id( "DisbursementMethod" );
 	}
+
 
 	//Beneficiary
 	protected SelectElement selectBene (){

@@ -228,9 +228,9 @@ public class UniversalLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 4 );
 		SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-		getPolicy.searchByPolicy().sendKeys( "AM00000048" );
+		getPolicy.searchByPolicy().sendKeys( "AM00004308" );
 		getPolicy.searchButton().click();
-		getPolicy.family().getCell( "AM00000048" ).click();
+		getPolicy.family().getCell( "AM00004308" ).click();
 		NaviMenuView addSuspense = $( NaviMenuView.class ).first();
 		addSuspense.suspense().click();
 		ScenarioView addSuspenseButton = $( ScenarioView.class ).first();
@@ -272,9 +272,9 @@ public class UniversalLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 4 );
 		SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-		getPolicy.searchByPolicy().sendKeys( "AM00000048" );
+		getPolicy.searchByPolicy().sendKeys( "AM00001429" );
 		getPolicy.searchButton().click();
-		getPolicy.family().getCell( "AM00000048" ).click();
+		getPolicy.family().getCell( "AM00001429" ).click();
 		NaviMenuView transaction = $( NaviMenuView.class ).first();
 		transaction.transactionsWL().click();
 		ScenarioView loanTransaction = $(ScenarioView.class).first();
@@ -282,8 +282,9 @@ public class UniversalLifeIT extends BaseLoginTest {
 //		EntryDialogContent selectTransaction = $(EntryDialogContent.class).first();
 		TransactionPopUpPageView selectTransaction = $(TransactionPopUpPageView.class).first();
 		selectTransaction.transactionType().selectByText( "Loan" );
+		selectTransaction.effectiveDate().setDate(LocalDate.of(2030,7,4));
 		EntryDialogContent loan = $(EntryDialogContent.class).first();
-//		loan.effectiveDate().setDate(LocalDate.of(2028,1,1));;
+//		loan.LoanEffectveDate().setDate(LocalDate.of(2030,4,7));;
 		loan.loanAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "300" );
 		loan.disbursementMethod().selectByText( "Check Disbursement" );
 		Assertions.assertEquals( "300.00",loan.loanAmount().getValue() );
@@ -417,7 +418,7 @@ public class UniversalLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 3 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchBySSN().setValue( "511-20-7945" );
+		getFamily.searchBySSN().setValue( "511-20-7944" );
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Palmer" ).click();
 		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
@@ -441,7 +442,7 @@ public class UniversalLifeIT extends BaseLoginTest {
 		ApplicationView application = $( ApplicationView.class ).first();
 		waitUntil(driver -> application.getAgentNumber().isDisplayed(), 60);
 		application.getAgentNumber().openPopup();
-		application.getAgentNumber().sendKeys("6879456");
+		application.getAgentNumber().sendKeys("MC001");
 		Thread.sleep( 3_000 );
 	//	application.getAgentNumber().sendKeys(Keys.ARROW_DOWN);
 	//	application.getAgentNumber().sendKeys(Keys.ENTER);
@@ -453,7 +454,7 @@ public class UniversalLifeIT extends BaseLoginTest {
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
 		application.applicationReceivedDate().setDate( LocalDate.now() );
 		application.applicationSignedDate().setDate( LocalDate.now() );
-		Assertions.assertEquals( "6879456", application.getAgentNumber().getSelectedText() );
+		Assertions.assertEquals( "MC001 - Mariia Cherniak", application.getAgentNumber().getSelectedText() );
 		application.applicationFundsReceived().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.applicationFundsReceived().getSelectedText() );
 		application.paymentMethod().selectByText("Electronic Fund Transfer");
@@ -513,9 +514,9 @@ public class UniversalLifeIT extends BaseLoginTest {
 		getSelectButton.getSelectItem().selectByText("Search Policy");
 
 		SearchComponentView getPolicy = $(SearchComponentView.class).first();
-		getPolicy.searchByPolicy().sendKeys("AM00000047");
+		getPolicy.searchByPolicy().sendKeys("AM00004532");
 		getPolicy.searchButton().click();
-		getPolicy.family().getCell("AM00000047").click();
+		getPolicy.family().getCell("AM00004532").click();
 
 		NaviMenuView transaction = $(NaviMenuView.class).first();
 		transaction.policyTransactions().click();

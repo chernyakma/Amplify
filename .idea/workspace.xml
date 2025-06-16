@@ -6,17 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="52afc000-c2ad-44a9-bf82-734c0abfe3f6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/downloadFiles/Point of Sale (1).pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/downloadFiles/Point of Sale.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/downloadFiles/ReferenceEFT.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/downloadFiles/ReferenceEFT.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/AddFamilyIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/AddFamilyIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/AddressView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/AddressView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/BaseLoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/BaseLoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/EntryDialogContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/EntryDialogContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/ScenarioView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/ScenarioView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/UniversalLifeIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/UniversalLifeIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/AmplifyTestdata.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/AmplifyTestdata.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/Reference.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Reference.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/ReferenceEFT.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/ReferenceEFT.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,23 +84,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.UniversalLifeIT.addLoan">
-    <configuration name="AddFamilyIT.addBank" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Amplify" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.vaadin.testbenchexample.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.vaadin.testbenchexample" />
-      <option name="MAIN_CLASS_NAME" value="com.vaadin.testbenchexample.AddFamilyIT" />
-      <option name="METHOD_NAME" value="addBank" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.UniversalLifeIT.addNewBusinessEFT">
     <configuration name="AddFamilyIT.addOtherRoles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Amplify" />
       <extension name="coverage">
@@ -139,7 +117,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UniversalLifeIT.addNewBusiness" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UniversalLifeIT.addNewBusinessEFT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Amplify" />
       <extension name="coverage">
         <pattern>
@@ -149,7 +127,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.vaadin.testbenchexample" />
       <option name="MAIN_CLASS_NAME" value="com.vaadin.testbenchexample.UniversalLifeIT" />
-      <option name="METHOD_NAME" value="addNewBusiness" />
+      <option name="METHOD_NAME" value="addNewBusinessEFT" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -171,20 +149,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UniversalLifeIT.payEFT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Amplify" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vaadin.testbenchexample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vaadin.testbenchexample" />
+      <option name="MAIN_CLASS_NAME" value="com.vaadin.testbenchexample.UniversalLifeIT" />
+      <option name="METHOD_NAME" value="payEFT" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="JUnit.UniversalLifeIT.addNewBusinessEFT" />
+      <item itemvalue="JUnit.UniversalLifeIT.payEFT" />
       <item itemvalue="JUnit.AddFamilyIT.addOtherRoles" />
-      <item itemvalue="JUnit.UniversalLifeIT.addNewBusiness" />
       <item itemvalue="JUnit.UniversalLifeIT.addSuspense" />
-      <item itemvalue="JUnit.AddFamilyIT.addBank" />
       <item itemvalue="JUnit.UniversalLifeIT.addLoan" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UniversalLifeIT.addNewBusinessEFT" />
+        <item itemvalue="JUnit.UniversalLifeIT.payEFT" />
         <item itemvalue="JUnit.UniversalLifeIT.addLoan" />
-        <item itemvalue="JUnit.AddFamilyIT.addBank" />
-        <item itemvalue="JUnit.AddFamilyIT.addOtherRoles" />
         <item itemvalue="JUnit.UniversalLifeIT.addSuspense" />
-        <item itemvalue="JUnit.UniversalLifeIT.addNewBusiness" />
+        <item itemvalue="JUnit.AddFamilyIT.addOtherRoles" />
       </list>
     </recent_temporary>
   </component>
