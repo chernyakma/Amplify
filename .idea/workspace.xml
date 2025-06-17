@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="52afc000-c2ad-44a9-bf82-734c0abfe3f6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/AddFamilyIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/AddFamilyIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/BaseLoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/BaseLoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/EntryDialogContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/EntryDialogContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/ScenarioView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/ScenarioView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/UniversalLifeIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/UniversalLifeIT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +80,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.UniversalLifeIT.addNewBusinessEFT">
+  <component name="RunManager" selected="JUnit.UniversalLifeIT.payEFT">
     <configuration name="AddFamilyIT.addOtherRoles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Amplify" />
       <extension name="coverage">
@@ -174,8 +170,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UniversalLifeIT.addNewBusinessEFT" />
         <item itemvalue="JUnit.UniversalLifeIT.payEFT" />
+        <item itemvalue="JUnit.UniversalLifeIT.addNewBusinessEFT" />
         <item itemvalue="JUnit.UniversalLifeIT.addLoan" />
         <item itemvalue="JUnit.UniversalLifeIT.addSuspense" />
         <item itemvalue="JUnit.AddFamilyIT.addOtherRoles" />

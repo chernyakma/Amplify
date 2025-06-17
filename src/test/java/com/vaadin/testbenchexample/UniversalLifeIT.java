@@ -1,6 +1,7 @@
 package com.vaadin.testbenchexample;
 import java.io.File;
 import java.io.IOException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -529,6 +530,11 @@ public class UniversalLifeIT extends BaseLoginTest {
 
 		LocalDate originalDate = parseFlexibleDate(originalDateText);
 		LocalDate newDate = originalDate.plusDays(1);
+		if (newDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
+			newDate = newDate.plusDays(2);
+		} else if (newDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
+			newDate = newDate.plusDays(1);
+		}
 		payPremium.date().setDate(newDate);
 
 		payPremium.cycle().click();
