@@ -88,6 +88,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		Assertions.assertEquals( "1/5/1965", family.getDateOfBirth().getInputValue() );
 		family.getSaveButton().click();
 		family.FamilyButton().click();
+		waitUntil(driver -> $(ScenarioView.class).exists(), 100);
 	//	NaviMenuView getFamilybutton = $( NaviMenuView.class ).first();
 	//	getFamilybutton.getFamily().click();
 		ScenarioView deleteMember= $(ScenarioView.class).first();
@@ -240,7 +241,9 @@ public class AddFamilyIT extends BaseLoginTest {
 		VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
 		delete.getSaveButton().click();
 		getBeneficiary.policyNumber().getCell("AM00004757").click();
-		family.beneficiaries().click();
+		NaviMenuView deleteBeneficiary = $(NaviMenuView.class).first();
+		deleteBeneficiary.beneficiaries().click();
+		Thread.sleep( 3_000 );
 		ScenarioView deleteBene =$(ScenarioView.class).first();
 		deleteBene.getDeleteBeneButton().click();
 		deleteBene.getSaveButton().click();

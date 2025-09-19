@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="52afc000-c2ad-44a9-bf82-734c0abfe3f6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/AddFamilyIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/AddFamilyIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/BaseLoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/BaseLoginTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/UniversalLifeIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vaadin/testbenchexample/UniversalLifeIT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +82,23 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.UniversalLifeIT.payEFT">
+  <component name="RunManager" selected="JUnit.AddFamilyIT.addSpouse">
+    <configuration name="AddFamilyIT.addBeneficiary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Amplify" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vaadin.testbenchexample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vaadin.testbenchexample" />
+      <option name="MAIN_CLASS_NAME" value="com.vaadin.testbenchexample.AddFamilyIT" />
+      <option name="METHOD_NAME" value="addBeneficiary" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AddFamilyIT.addOtherRoles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Amplify" />
       <extension name="coverage">
@@ -97,7 +115,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UniversalLifeIT.addLoan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AddFamilyIT.addSpouse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Amplify" />
       <extension name="coverage">
         <pattern>
@@ -106,8 +124,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.vaadin.testbenchexample" />
-      <option name="MAIN_CLASS_NAME" value="com.vaadin.testbenchexample.UniversalLifeIT" />
-      <option name="METHOD_NAME" value="addLoan" />
+      <option name="MAIN_CLASS_NAME" value="com.vaadin.testbenchexample.AddFamilyIT" />
+      <option name="METHOD_NAME" value="addSpouse" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -124,22 +142,6 @@
       <option name="PACKAGE_NAME" value="com.vaadin.testbenchexample" />
       <option name="MAIN_CLASS_NAME" value="com.vaadin.testbenchexample.UniversalLifeIT" />
       <option name="METHOD_NAME" value="addNewBusinessEFT" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UniversalLifeIT.addSuspense" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Amplify" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.vaadin.testbenchexample.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.vaadin.testbenchexample" />
-      <option name="MAIN_CLASS_NAME" value="com.vaadin.testbenchexample.UniversalLifeIT" />
-      <option name="METHOD_NAME" value="addSuspense" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -162,19 +164,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.AddFamilyIT.addSpouse" />
+      <item itemvalue="JUnit.AddFamilyIT.addOtherRoles" />
+      <item itemvalue="JUnit.AddFamilyIT.addBeneficiary" />
       <item itemvalue="JUnit.UniversalLifeIT.addNewBusinessEFT" />
       <item itemvalue="JUnit.UniversalLifeIT.payEFT" />
-      <item itemvalue="JUnit.AddFamilyIT.addOtherRoles" />
-      <item itemvalue="JUnit.UniversalLifeIT.addSuspense" />
-      <item itemvalue="JUnit.UniversalLifeIT.addLoan" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AddFamilyIT.addSpouse" />
+        <item itemvalue="JUnit.AddFamilyIT.addOtherRoles" />
+        <item itemvalue="JUnit.AddFamilyIT.addBeneficiary" />
         <item itemvalue="JUnit.UniversalLifeIT.payEFT" />
         <item itemvalue="JUnit.UniversalLifeIT.addNewBusinessEFT" />
-        <item itemvalue="JUnit.UniversalLifeIT.addLoan" />
-        <item itemvalue="JUnit.UniversalLifeIT.addSuspense" />
-        <item itemvalue="JUnit.AddFamilyIT.addOtherRoles" />
       </list>
     </recent_temporary>
   </component>
