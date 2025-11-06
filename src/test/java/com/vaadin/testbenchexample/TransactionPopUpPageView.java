@@ -4,6 +4,7 @@ import com.vaadin.flow.component.checkbox.testbench.CheckboxElement;
 import com.vaadin.flow.component.datepicker.testbench.DatePickerElement;
 import com.vaadin.flow.component.select.testbench.SelectElement;
 import com.vaadin.flow.component.textfield.testbench.TextAreaElement;
+import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
 import com.vaadin.testbench.TestBenchElement;
 import com.vaadin.testbench.elementsbase.Element;
 
@@ -18,6 +19,10 @@ public class TransactionPopUpPageView extends TestBenchElement {
     protected DatePickerElement effectiveDate(){
 
         return $(DatePickerElement.class).first();
+    }
+    protected TextFieldElement premium(){
+
+        return $(TestBenchElement.class).id("PremiumSection").$(TextFieldElement.class).id("AmountRequested");
     }
     protected TextAreaElement note(){
 

@@ -19,53 +19,7 @@ import com.vaadin.testbench.screenshot.ImageFileUtil;
 
 public class UniversalLifeIT extends BaseLoginTest {
 
-	protected LocalDate initialPaidToDate;
-	protected final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
 
-	@Test
-	public void addSuspense() throws InterruptedException {
-		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
-		getSelectButton.getSelectItem().selectItemByIndex( 4 );
-		SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-		getPolicy.searchByPolicy().sendKeys( "AM00004308" );
-		getPolicy.searchButton().click();
-		getPolicy.family().getCell( "AM00004308" ).click();
-		NaviMenuView addSuspense = $( NaviMenuView.class ).first();
-		addSuspense.suspense().click();
-		ScenarioView addSuspenseButton = $( ScenarioView.class ).first();
-		addSuspenseButton.addSuspenceButton().click();
-		EntryDialogContent suspenseSource = $( EntryDialogContent.class ).first();
-		suspenseSource.suspenseAmount().sendKeys( "100" );
-		Assertions.assertEquals( "100",suspenseSource.suspenseAmount().getValue() );
-		suspenseSource.suspenseSource().selectByText( "Check" );
-		Assertions.assertEquals( "Check",suspenseSource.suspenseSource().getSelectedText() );
-		suspenseSource.depositAccount().selectByText( "General Premium" );
-		suspenseSource.processButton().click();
-	/*
-		ScenarioView checkSuspence=$(ScenarioView.class).first();
-			Assertions.assertEquals( "$100,000.00",checkSuspence.suspenceBalance().getText() );
-
-		checkSuspence.transferSuspenceButton().click();
-		EntryDialogContent transferSuspence = $(EntryDialogContent.class).first();
-		transferSuspence.fromAccount().selectByText( "General Premium" );
-		//	EntryDialogContent transferSuspenceTo = $(EntryDialogContent.class).first();
-		//	transferSuspence.note().sendKeys( "123" );
-		//	transferSuspence.toAccount().focus();
-		transferSuspence.toAccount().selectByText( "Family" );
-		transferSuspence.searchFamily().sendKeys( "Palmer" );
-		transferSuspence.search().doubleClick();
-		transferSuspence.family().getCell( "Palmer" ).click();
-		transferSuspence.toAccount().selectByText( "General Premium" );
-		transferSuspence.transferAmount().sendKeys( "100000" );
-		Assertions.assertEquals( "100000",transferSuspence.transferAmount().getValue() );
-		transferSuspence.transferEffectveDate().setDate( LocalDate.now() );
-		transferSuspence.note().sendKeys( "transfer to David Palmer" );
-		transferSuspence.okButton().click();
-		ScenarioView suspenceAmount=$(ScenarioView.class).first();
-			Assertions.assertEquals( "$0.00",suspenceAmount.suspenceBalance().getText() );
-*/
-
-	}
 	@Test
 	public void addLoan() throws InterruptedException, IOException {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
@@ -306,63 +260,6 @@ public class UniversalLifeIT extends BaseLoginTest {
 
 	}
 
-	@Test
-	public void payEFT() {
-
-		VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
-		getSelectButton.getSelectItem().selectByText("Search Policy");
-
-		SearchComponentView getPolicy = $(SearchComponentView.class).first();
-		getPolicy.searchByPolicy().sendKeys("AM00004532");
-		getPolicy.searchButton().click();
-		getPolicy.family().getCell("AM00004532").click();
-
-		NaviMenuView transaction = $(NaviMenuView.class).first();
-		transaction.policyTransactions().click();
-
-		ScenarioView payPremium = $(ScenarioView.class).first();
-
-		//flexible parser
-		String originalDateText = payPremium.policyPaidToDate().getText();
-		initialPaidToDate = parseFlexibleDate(originalDateText);
-
-		LocalDate originalDate = parseFlexibleDate(originalDateText);
-		LocalDate newDate = originalDate.plusDays(1);
-		if (newDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
-			newDate = newDate.plusDays(2);
-		} else if (newDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
-			newDate = newDate.plusDays(1);
-		}
-		payPremium.date().setDate(newDate);
-
-		payPremium.cycle().click();
-		VaadinConfirmDialogView cycleUp = $(VaadinConfirmDialogView.class).first();
-		cycleUp.getSaveButton().click();
-		waitUntil(driver -> !payPremium.progressBar().isDisplayed(), 80);
-		String updatedText = payPremium.policyPaidToDate().getText();
-		LocalDate updatedDate = LocalDate.parse(updatedText, formatter);
-
-		Assertions.assertEquals(initialPaidToDate.plusMonths(1), updatedDate);
-
-	}
-
-	protected LocalDate parseFlexibleDate(String dateString) {
-		dateString = dateString.trim(); // 🔑 trims extra spaces
-
-		List<DateTimeFormatter> formatters = List.of(
-				DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH),   // "Sep 1, 2025"
-				DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH),  // "September 1, 2025"
-				DateTimeFormatter.ofPattern("M/d/yyyy")                       // "4/1/2025"
-		);
-
-		for (DateTimeFormatter f : formatters) {
-			try {
-				return LocalDate.parse(dateString, f);
-			} catch (Exception ignored) {}
-		}
-
-		throw new IllegalArgumentException("Could not parse date: " + dateString);
-	}
 
 
 }
