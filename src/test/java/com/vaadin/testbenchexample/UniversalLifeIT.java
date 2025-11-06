@@ -77,13 +77,13 @@ public class UniversalLifeIT extends BaseLoginTest {
 		confirmation.getSaveButton().click();
 
 	}
-/*
+
 	@Test
 	public void addNewBusiness() throws Exception {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 3 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchBySSN().setValue( "511-20-7945" );
+		getFamily.searchBySSN().setValue( "511-20-7944" );
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Palmer" ).click();
 		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
@@ -104,16 +104,21 @@ public class UniversalLifeIT extends BaseLoginTest {
 		confirm.getSaveButton().click();
 
 		ApplicationView application = $( ApplicationView.class ).first();
-		application.getAgentNumber().sendKeys("6879456");
+		waitUntil(driver -> application.getAgentNumber().isDisplayed(), 60);
+		application.getAgentNumber().openPopup();
+		application.getAgentNumber().sendKeys("MC001");
 		Thread.sleep( 3_000 );
-		application.getAgentNumber().sendKeys(Keys.ARROW_DOWN);
-		application.getAgentNumber().sendKeys(Keys.ENTER);
+		//	application.getAgentNumber().sendKeys(Keys.ARROW_DOWN);
+		//	application.getAgentNumber().sendKeys(Keys.ENTER);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown'}));", application.getAgentNumber());
+		application.getAgentNumber().sendKeys( Keys.ENTER );
 
 		application.applicationReceived().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
 		application.applicationReceivedDate().setDate( LocalDate.now() );
 		application.applicationSignedDate().setDate( LocalDate.now() );
-		Assertions.assertEquals( "6879456", application.getAgentNumber().getSelectedText() );
+		Assertions.assertEquals( "MC001 - Mariia Cherniak", application.getAgentNumber().getSelectedText() );
 		application.applicationFundsReceived().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.applicationFundsReceived().getSelectedText() );
 		application.cashWithApplication().selectByText( "Yes" );
@@ -165,7 +170,7 @@ public class UniversalLifeIT extends BaseLoginTest {
 
 	}
 
-*/
+
 	@Test
 	public void addNewBusinessEFT() throws Exception {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
