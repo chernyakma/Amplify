@@ -144,14 +144,14 @@ public class UniversalLifeIT extends BaseLoginTest {
 		addNote.attachmentType().selectByText( "Final Application" );
 	//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Application.pdf") );
 		String filePathApp = System.getenv("UPLOAD_FILE_PATH_App");
-		File fileToUploadApp = new File(filePathApp);
+		File fileToUploadApp = new File(filePathApp).getAbsoluteFile();
 		addNote.uploadFileButton().upload(fileToUploadApp);
 		Thread.sleep( 5_000 );
 		addNote.attachButton().click();
 		addNote.attachmentType().selectByText( "Final Illustration" );
 	//	addNote.uploadFileButton().upload( new File( "C:\\Users\\MariiaCherniak\\Downloads\\Final Illustration .pdf" ) );
 		String filePathIll = System.getenv("UPLOAD_FILE_PATH_ILL");
-		File fileToUploadIll = new File(filePathIll);
+		File fileToUploadIll = new File(filePathIll).getAbsoluteFile();
 		addNote.uploadFileButton().upload(fileToUploadIll);
 		addNote.okButton().click();
 		addNote.closeButton().click();
